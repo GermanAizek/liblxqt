@@ -189,6 +189,7 @@ const Notification::ServerInfo NotificationPrivate::serverInfo()
 
 void NotificationPrivate::queryServerInfo(bool async)
 {
+    // Stack-allocated watcher with automatic cleanup via Qt's event loop
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(mInterface->GetServerInformation(), this);
 
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher* callWatcher) {

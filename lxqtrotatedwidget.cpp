@@ -192,7 +192,7 @@ void RotatedWidget::mousePressEvent(QMouseEvent *event)
         return;
     cascadeCall = true;
 
-    // Stack allocation instead of heap allocation
+    // Stack allocation: QMouseEvent object created on stack instead of heap
     QMouseEvent contentEvent(event->type(), adjustedPoint(event->pos()), event->globalPosition(), event->button(), event->buttons(), event->modifiers());
     QApplication::sendEvent(mContent, &contentEvent);
 
@@ -212,7 +212,7 @@ void RotatedWidget::mouseReleaseEvent(QMouseEvent *event)
         return;
     cascadeCall = true;
 
-    // Stack allocation instead of heap allocation
+    // Stack allocation: QMouseEvent object created on stack instead of heap
     QMouseEvent contentEvent(event->type(), adjustedPoint(event->pos()), event->globalPosition(), event->button(), event->buttons(), event->modifiers());
     QApplication::sendEvent(mContent, &contentEvent);
 
@@ -232,7 +232,7 @@ void RotatedWidget::mouseDoubleClickEvent(QMouseEvent *event)
         return;
     cascadeCall = true;
 
-    // Stack allocation instead of heap allocation
+    // Stack allocation: QMouseEvent object created on stack instead of heap
     QMouseEvent contentEvent(event->type(), adjustedPoint(event->pos()), event->globalPosition(), event->button(), event->buttons(), event->modifiers());
     QApplication::sendEvent(mContent, &contentEvent);
 
@@ -252,7 +252,7 @@ void RotatedWidget::mouseMoveEvent(QMouseEvent *event)
         return;
     cascadeCall = true;
 
-    // Stack allocation instead of heap allocation
+    // Stack allocation: QMouseEvent object created on stack instead of heap
     QMouseEvent contentEvent(event->type(), adjustedPoint(event->pos()), event->globalPosition(), event->button(), event->buttons(), event->modifiers());
     QApplication::sendEvent(mContent, &contentEvent);
 
@@ -273,7 +273,7 @@ void RotatedWidget::wheelEvent(QWheelEvent *event)
         return;
     cascadeCall = true;
 
-    // Stack allocation instead of heap allocation
+    // Stack allocation: QWheelEvent object created on stack instead of heap
     QWheelEvent contentEvent(adjustedPoint(event->position()), event->globalPosition(), event->pixelDelta(), event->angleDelta(), event->buttons(), event->modifiers(), event->phase(), false);
     QApplication::sendEvent(mContent, &contentEvent);
 
@@ -324,7 +324,7 @@ void RotatedWidget::resizeEvent(QResizeEvent *event)
         return;
     cascadeCall = true;
 
-    // Stack allocation instead of heap allocation
+    // Stack allocation: QResizeEvent object created on stack instead of heap
     QResizeEvent contentEvent(adjustedSize(event->size()), adjustedSize(event->oldSize()));
     QApplication::sendEvent(mContent, &contentEvent);
 
